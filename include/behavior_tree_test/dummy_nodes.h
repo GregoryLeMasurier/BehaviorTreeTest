@@ -67,7 +67,7 @@ class MyAsyncAction: public CoroActionNode
         std::cout << name() <<": Done. 'Waiting Reply' loop repeated "
                   << count << " times" << std::endl;
         cleanup(false);
-        if(name() == "action_B")
+        if(name() == "action_B_SEQ2")
             return NodeStatus::FAILURE;
         return NodeStatus::SUCCESS;
     }

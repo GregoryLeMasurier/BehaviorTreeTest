@@ -1,13 +1,22 @@
  <root main_tree_to_execute = "MainTree" >
      <BehaviorTree ID="MainTree">
         <RetryUntilSuccesful num_attempts="3" name="">
-            <ReactiveSequence name="root_sequence">
-                <CheckBattery   name="check_battery"/>
-                <SequenceStar name="">
-                    <MyAsyncAction name="action_A"/>
-                    <MyAsyncAction name="action_B"/>
-                </SequenceStar>
-            </ReactiveSequence>
+            <SequenceStar name="">
+                <ReactiveSequence name="SEQ1">
+                    <CheckBattery   name="check_battery"/>
+                    <SequenceStar name="">
+                        <MyAsyncAction name="action_A_SEQ1"/>
+                        <MyAsyncAction name="action_B_SEQ1"/>
+                    </SequenceStar>
+                </ReactiveSequence>
+                <ReactiveSequence name="SEQ2">
+                    <CheckBattery   name="check_battery"/>
+                    <SequenceStar name="">
+                        <MyAsyncAction name="action_A_SEQ2"/>
+                        <MyAsyncAction name="action_B_SEQ2"/>
+                    </SequenceStar>
+                </ReactiveSequence>
+            </SequenceStar>
         </RetryUntilSuccesful>
      </BehaviorTree>
  </root>
